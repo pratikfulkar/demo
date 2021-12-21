@@ -1,0 +1,27 @@
+<template id="AppHeader">
+	__menuhtmlcontent
+</template>
+<script>
+	var AppHeader = Vue.component('AppHeader', {
+		template:'#AppHeader',
+		
+		methods:{
+			logout:function(){
+				window.localStorage.clear();
+				window.location = "/";
+			}
+		},
+		
+		mounted:function(){
+			//let height = this.$el.offsetHeight;
+			if(this.$refs.navbar){
+				var height = this.$refs.navbar.offsetHeight;
+				document.body.style.paddingTop = height + 'px';
+				
+				if(this.$refs.sidebar){
+					this.$refs.sidebar.style.top = height + 'px';
+				}
+			}
+		}
+	})
+</script>
